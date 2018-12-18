@@ -1,6 +1,6 @@
 #!/bin/bash
 export DOCKERHUB_IMAGE=devicegateway
-export DOCKERHUB_TAG=0.0.1
+export DOCKERHUB_TAG=0.0.2
 
 rm -rf deployment/docker/device-gateway/
 cp -R $API_SHELL_PATH/device-gateway deployment/docker/device-gateway

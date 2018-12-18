@@ -31,18 +31,18 @@ spec:
         - name: google-application-credentials
           mountPath: "/etc/GOOGLE_APPLICATION_CREDENTIALS"
           readOnly: true
-        image: nebulaetpm/devicegateway:0.0.1
+        image: nebulaetpm/devicegateway:0.0.2
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
         livenessProbe:
           # tcp probe
-          tcpSocket:
-            port: 3000
-          # an http probe
-          # httpGet:
-          #   path: /api/device-gateway/graphql/http
+          # tcpSocket:
           #   port: 3000
+          # an http probe
+          httpGet:
+            path: /api/device-gateway/graphql/liveness
+            port: 3000
           # length of time to wait for a pod to initialize
           # after pod startup, before applying health checking
           initialDelaySeconds: 5
